@@ -1,0 +1,220 @@
+\documentclass{antiquebook}
+
+
+\usepackage{lipsum}
+\usepackage{siunitx}
+\usepackage[makeroom]{cancel}
+\usepackage[math]{blindtext}
+
+\author{Artur R. B. Boyago (aka Morcego)}
+\title{{Moyses Vol. 1 - Soluções}}
+
+\subfile{glossary.tex}
+
+\begin{document}
+	\frontmatter
+	\maketitle
+
+	\tableofcontents
+
+	\mainmatter
+	\pagestyle{fancy}
+
+	\chapter{Movimento Unidimensional}
+
+	\section{Q1}
+	
+	O problema estabelece que a tartaruga anda continuamente até o final, mas que a lebre tem uma 
+	pequena parcela de tempo de descanso. Portanto, o tempo que demora a tartaruga chegar ao final deve
+	ser menor ou igual ao tempo da lebre chegar ao final para que ela ganhe a corrida. Portanto, vamos achar o tempo de corrida da tartaruga, e igualar ao tempo de corrida da lebre:
+
+\begin{align*}
+	&(\text{Tempo de corrida da tartaruga}) = \frac{\text{Dist. total}}{v_t} \\
+	&(\text{Tempo de corrida da lebre}) = \frac{\text{Dist. ao descanso}}{v_l}+ (\text{Tempo de descanso} \ t_s)+\frac{(\text{Dist. total - Dist. ao descanso})}{v_l}
+\end{align*}	
+
+	Igualando os dois, podemos achar uma expressão pro tempo de descanso $t_s$ e substituir os valores:
+
+\begin{align*}
+	&\frac{D}{v_t} = \frac{d}{v_l} + t_s + \frac{D-d}{v_l} \\
+	&\frac{D}{v_t} - \frac{D}{v_l} = t_s \\
+	&(600 \ \si{m}) \left ( \frac{1}{1,5 \ \si{m/min}} - \frac{1}{30 \ \si{km/h}} \right ) \approx 6\si{h}38\si{min}
+\end{align*}
+
+	\section{Q2}
+
+	Queremos saber o tempo para atingir uma velocidade sob aceleração constante, 
+	que pode ser achado por $v(t)=at$, e
+	depois a distância total, que é $at^2/2$.
+
+	\begin{align*}
+		a = \frac{100 \ \si{km/h}}{4 \ \si{s}} \approx \frac{27,7 \ \si{m/s}}{4 \ \si{s}} \approx 6,92 \ \si{m/s^2} 
+	\end{align*}
+
+	Esse $a$ é $\approx 70\%$ da gravidade média da terra. O tempo é
+	então:
+
+	\begin{align*}
+		(100 \ \si{km/h}) = (6,92 \ \si{m/s^2})t \rightarrow t \approx 4 \si{s}
+	\end{align*}
+
+	Substituindo para achar a distância:
+
+	\begin{align*}
+		x(t) = \frac{1}{2}(6,92 \ \si{m/s^2})(4\si{s})^2 \approx 2,41 \ \si{km}
+	\end{align*}
+
+
+	\section{Q3}
+
+
+
+	\section{Q4}
+
+	\section{Q5}
+
+	\section{Q6}
+
+	\chapter{Movimento bidimensional}
+
+	\section{Q1}
+
+	\section{Q2}
+
+	\section{Q3}
+
+	Queremos provar a desigualdade:
+
+	\begin{align*}
+		| |\mathbf{a}| - |\mathbf{b}|| \le
+		| \mathbf{a}+\mathbf{b} | \le
+		| \mathbf{a} | + | \mathbf{b} |
+	\end{align*}
+
+	Essa identidade é trivial por lógica; o primeiro termo sempre vai ter dois números
+	estritamente positivos se subtraindo e gerando outro positivo, no segundo temos dois números
+	formando um estrito positivo, e no terceiro \emph{sempre} temos dois números estritamente
+	positivos se somando.
+
+	\vspace{\baselineskip}
+
+	Usando algebra geométrica, sabemos que
+	$|\mathbf{a}| = \mathbf{a}^2$, logo, simplesmente
+	fazendo quadrados de tudo:
+
+	\begin{align*}
+		(\mathbf{a}^2-\mathbf{b}^2)^2 \le (\mathbf{a}+\mathbf{b})^2 \le
+		\mathbf{a}^2 + \mathbf{b}^2
+	\end{align*}
+
+	\chapter{Os Principios da Dinâmica}
+
+	\section{Q1}
+
+	Isso é só uma prova das \emph{lei dos senos}. Sabendo que $\mathbf{F}_1+\mathbf{F}_2+\mathbf{F}_3=0$,
+	podemos usar algebra geométrica rapidamente; tome o produto externo $\wedge$ em tres partições
+	dessa equação:
+
+	\begin{align*}
+		&(\mathbf{F}_1+\mathbf{F}_2+\mathbf{F}_3)\wedge\mathbf{F}_1=0\wedge \mathbf{F}_1 \\
+		&(\mathbf{F}_1+\mathbf{F}_2+\mathbf{F}_3)\wedge\mathbf{F}_2=0\wedge \mathbf{F}_2 \\
+		&(\mathbf{F}_1+\mathbf{F}_2+\mathbf{F}_3)\wedge\mathbf{F}_3=0\wedge \mathbf{F}_3 
+	\end{align*}
+
+	Termos da forma $\mathbf{x} \wedge \mathbf{x}$ são $0$, logo temos:
+
+	\begin{align*}
+		&\mathbf{F}_2\wedge\mathbf{F}_1+\mathbf{F}_3\wedge\mathbf{F}_1 =0 \\
+		&\mathbf{F}_1\wedge\mathbf{F}_2+\mathbf{F}_3\wedge\mathbf{F}_2 =0  \\
+		&\mathbf{F}_1\wedge\mathbf{F}_3+\mathbf{F}_2\wedge\mathbf{F}_3 =0  
+	\end{align*}
+
+	Se colocarmos os segundos termos no lado do zero, e depois tomarmos suas magnitudes, temos:
+
+	\begin{align*}
+		&|\mathbf{F}_2\wedge\mathbf{F}_1| = |\mathbf{F}_3\wedge\mathbf{F}_1|  \\
+		&|\mathbf{F}_1\wedge\mathbf{F}_2| = |\mathbf{F}_3\wedge\mathbf{F}_2|  \\
+		&|\mathbf{F}_1\wedge\mathbf{F}_3| = |\mathbf{F}_2\wedge\mathbf{F}_3| 
+	\end{align*}
+
+	Pela regra que $|\mathbf{a}\wedge\mathbf{b}| = |\mathbf{a}| |\mathbf{b}| \cos \theta_{ab}$,
+	temos então a conclusão final da lei dos senos:
+
+	\begin{align*}
+		\frac{\sin \theta_{23}}{\mathbf{F}_1} = \frac{\sin \theta_{31}}{\mathbf{F}_2} = \frac{\sin \theta_{12}}{\mathbf{F}_3}
+	\end{align*}
+
+	\section{Q8}
+
+	O martelo originalmente tem uma energia cinética de $m\mathbf{v}^2/2$, e pelo
+	trabalho $W$ que a madeira faz no prego, essa energia é totalmente dissipada
+	pra zero. O trabalho é a força média $\mathbf{F}_m$ vezes o deslocamento
+	$l$. Queremos achar a proporção:
+
+	\begin{align*}
+		\frac{(\text{For. med.})}{(\text{Peso do martelo})} = 
+		\frac{\mathbf{F}_m}{{m}\mathbf{g}} = \frac{W/l}{{m}\mathbf{g}}
+	\end{align*}
+
+	Sabendo que:
+
+	\begin{align*}
+		\frac{1}{2}m\mathbf{v}^2 - \mathbf{F}_m l = 0 \rightarrow
+		\mathbf{F}_m = \frac{1}{2l}m\mathbf{v}^2
+	\end{align*}
+
+	Portanto podemos substituir:
+
+	\begin{align*}
+		\frac{ \left ( \frac{1}{2l}m\mathbf{v}^2  \right ) }{m\mathbf{g}}
+	\end{align*}
+
+	Para acharmos $\mathbf{v}$, o problema disse que é a velocidade
+	final do martelo depois duma queda de altura $h$. Essa velocidade é
+	$\sqrt{2\mathbf{g}h}$, logo:
+
+	\begin{align*}
+		\frac{ \left ( \frac{1}{2l} \cancel{m} \mathbf{v}^2  \right ) }{\cancel{m}\mathbf{g}} = \frac{\mathbf{v}^2}{2l\mathbf{g}} = 
+		\frac{2\cancel{\mathbf{g}}h}{2\cancel{\mathbf{g}}l} = \frac{h}{l}
+	\end{align*}
+
+
+
+	\chapter{Rotações e Momento Angular}
+
+	\section{Q1}
+
+	Esse problema é relativamente conceitual então serei breve.
+	O vetor $\mathbf{c}=\mathbf{a} \times \mathbf{b}$ é um \emph{vetor axial} que representa
+	o \emph{dual pseudoescalar} do bivetor $\mathbf{a} \wedge \mathbf{b}$. Por isso
+	$|\mathbf{c}| = |\mathbf{a}\wedge \mathbf{b}|$, ou seja, seu comprimento é proporcional
+	a área do bivetor, e pode ser então descrito como $i(\mathbf{a}\wedge\mathbf{b})$.
+
+	\vspace{\baselineskip}
+
+	Sobre o segundo problema, se você somar vários bivetores em direções opostas com a mesma
+	magnitude, evidentemente você irá retornar zero. Uma nota, irei usar bivetores ao invés
+	de vetores axiais em todo o resto do livro por que os acho intoleravéis.
+
+	\section{Q2}
+
+	O \emph{\textbf{momento de dipolo}} é $\mathbf{p} = q\mathbf{d}$, ou seja, apenas uma 
+	diferença de posições com escala por carga. Sabemos que o torque é o bivetor 
+	$\mathbf{\tau} = \mathbf{f} \wedge \mathbf{x}$, e sabemos que a força $\mathbf{f}$
+	do campo elétrico $\mathbf{E}$ é simplesmente $q\mathbf{E}$, logo o torque:
+
+	\begin{align*}
+		\mathbf{\tau} &= (q\mathbf{E}) \wedge \mathbf{d} \\
+		&= \mathbf{E} \wedge (q\mathbf{d}) \\
+		&= \mathbf{E} \wedge \mathbf{p}
+	\end{align*}
+	
+	Sobre a energia potencial $U$, sabemos que ela deve ser:
+
+	\begin{align*}
+		U \propto \int_\gamma \mathbf{F}\cdot d\mathbf{x}
+	\end{align*}
+
+	Mas queremos uma relação ao torque $\mathbf{\tau}$.
+
+\end{document}
