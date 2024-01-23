@@ -1,0 +1,108 @@
+\documentclass{antiquebook}
+
+
+\usepackage{lipsum}
+\usepackage{siunitx}
+\usepackage[makeroom]{cancel}
+\usepackage[math]{blindtext}
+
+\author{Artur R. B. Boyago (aka Morcego)}
+\title{{Moyses Vol. 2 - Soluções}}
+
+\subfile{glossary.tex}
+
+\begin{document}
+	\frontmatter
+	\maketitle
+
+	\tableofcontents
+
+	\mainmatter
+	\pagestyle{fancy}
+
+	\chapter{Estática dos Fluídos}
+
+	\section{Q4}
+
+	\chapter{Noções de Hidrodinâmica}
+
+	\section{Q8}
+
+	Queremos achar uma função $f(z)$ que descreva o formato do escoamento do fluído 
+	duma torneira. Conceitualmente, o motivo do filete ter esse formato é que a água
+	vai acelerando ao cair com aceleração $\mathbf{g}$, e por Bernoulli, isso implica 
+	numa diminuição da seção transversal $A$ de forma que a massa total se retenha
+	constante por unidade de tempo.
+
+	\vspace{\baselineskip}
+
+	\chapter{O Oscilador Harmônico}
+
+	\section{Q1}
+
+	\chapter{Oscilações Amortecidas e Forçadas}
+
+	\section{Q1}
+
+	\chapter{Ondas}
+
+	\section{Q1}
+
+	\section{Q5}
+
+	Sabemos que a velocidade de fase $\mathbf{v}_\phi$ é $\sqrt{\mathbf{g}\lambda/2\pi}$.
+	A velocidade de grupo é definida como:
+
+	\begin{align*}
+		\mathbf{v}_g = \partial_k \omega 
+	\end{align*}
+	
+	Sabemos também que o número de onda é $k = 2\pi \lambda$, então na realidade temos:
+
+	\begin{align*}
+		\mathbf{v}_\phi = \sqrt{\frac{\mathbf{g} \lambda^2}{2\pi \lambda} } =
+		\sqrt{\frac{\mathbf{g} \lambda^2}{k} } = \lambda \sqrt{\frac{\mathbf{g}}{k} }
+	\end{align*}
+
+	Mais, sabemos que a velocidade de fase e o número de onda se relacionam por
+	$\mathbf{v}_\phi = \omega / k$, logo:
+
+	\begin{align*}
+		\mathbf{v}_\phi = \frac{\omega}{k} = \lambda \sqrt{\frac{\mathbf{g}}{k} }
+	\end{align*}
+
+	Logo, podemos descobrir $\omega$ para depois diferenciarmos em respeito a $k$:
+
+	\begin{align*}
+		\omega = \lambda k \sqrt{\frac{\mathbf{g}}{k} } = \lambda \sqrt{k\mathbf{g} }
+	\end{align*}
+
+	E sua derivada em respeito a $k$:
+
+	\begin{align*}
+		\partial_k\omega &= [\lambda(k\mathbf{g})^{1/2}]' \\
+		&= \lambda (1/2)(k\mathbf{g})^{-1/2} \\
+		&= \frac{\lambda}{2\sqrt{k\mathbf{g}}} 
+	\end{align*}
+
+	O que completa a prova.
+	
+	\chapter{Temperatura}
+
+	\chapter{Calor. Primeira Lei da Termodinâmica}
+
+	\section{Q1}
+
+	No topo da catarata se tem apenas a energia potencial gravitacional
+	$\mathbf{E}_p$, um leve fluxo da água, e uma pequena quantidade
+	de temperatura. Desprezando esses dois, podemos considerar
+
+
+	\chapter{Propriedade dos Gases}
+
+	\chapter{Noções de Mecânica Estatística}
+
+	\section{Q1}
+	
+
+\end{document}
