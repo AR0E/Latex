@@ -1,0 +1,456 @@
+\documentclass[a4paper]{book}
+
+
+\usepackage{mlmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% determina a codificação utiizada (conversão automática dos acentos)
+\usepackage[brazil]{babel}
+\usepackage{hyperref}  			% controla a formação do índice
+%\usepackage{parskip}			% espaçamento entre os parágrafos
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{booktabs}			% para tabelas
+\setlength{\belowcaptionskip}{6pt} % espaçamento depois do título das tabelas
+%\setlength{\abovecaptionskip}{6pt}
+
+\hypersetup{
+		colorlinks=true,       		% false: boxed links; true: colored links
+		linkcolor=blue,        		% color of internal links
+		citecolor=blue,        		% color of links to bibliography
+		filecolor=magenta,     		% color of file links
+		urlcolor=blue}
+
+\IfFileExists{html.sty}
+{\usepackage{html}}
+{\usepackage{comment}
+ \excludecomment{htmlonly}
+ \excludecomment{rawhtml}
+ \includecomment{latexonly}
+ \newcommand{\html}[1]{}
+ \newcommand{\latex}[1]{##1}
+ \ifx\undefined\hyperref
+  \ifx\pdfoutput\undefined \let\pdfunknown\relax
+   \let\htmlATnew=\newcommand
+  \else
+   \ifx\pdfoutput\relax \let\pdfunknown\relax
+    \usepackage{hyperref}\let\htmlATnew=\renewcommand
+   \else
+    \usepackage{hyperref}\let\htmlATnew=\newcommand
+ \fi
+  \fi
+ \else
+  \let\htmlATnew=\renewcommand
+ \fi
+ \ifx\pdfunknown\relax
+  \htmlATnew{\htmladdnormallink}[2]{##1}
+ \else
+  \def\htmladdnormallink##1##2{\href{##2}{##1}}
+ \fi
+ \long\def\latexhtml##1##2{##1}}
+
+% latex2html nao suporta \ifthenelse...
+\usepackage[num,abnt-verbatim-entry=yes]{abntex2cite}
+%overcite
+%\citebrackets{}
+
+\newcommand{\OKs}{173}
+\newcommand{\quaseOKs}{12}
+\newcommand{\nadaOK}{3}
+
+\def\Versao$#1 #2${#2}
+\def\Data$#1 #2 #3${#2}
+%\newcommand{\bibtextitlecommand}[2]{``#2''}
+
+\usepackage{color}
+\definecolor{thered}{rgb}{0.65,0.04,0.07}
+\definecolor{thegreen}{rgb}{0.06,0.44,0.08}
+\definecolor{thegrey}{gray}{0.5}
+\definecolor{theshade}{rgb}{1,1,0.97}
+\definecolor{theframe}{gray}{0.6}
+
+\IfFileExists{listings.sty}{
+  \usepackage{listings}
+\lstset{%
+	language=[LaTeX]TeX,
+	columns=flexible,
+	basicstyle=\ttfamily\small,
+	backgroundcolor=\color{theshade},
+	frame=single,
+	tabsize=2,
+	rulecolor=\color{theframe},
+	title=\lstname,
+	escapeinside={\%*}{*)},
+	breaklines=true,
+	commentstyle=\color{thegrey},
+	keywords=[0]{\fichacatalografica,\errata,\folhadeaprovacao,\dedicatoria,\agradecimentos,\epigrafe,\resumo,\siglas,\simbolos,\citacao,\alineas,\subalineas,\incisos},
+	keywordstyle=[0]\color{thered},
+	keywords=[1]{},
+	keywordstyle=[1]\color{thegreen},
+	breakatwhitespace=true,
+	alsoother={0123456789_},
+	inputencoding=utf8,
+	extendedchars=true,
+	literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {è}{{\`{e}}}1 {ê}{{\^{e}}}1 {ë}{{\¨{e}}}1 {É}{{\'{E}}}1 {Ê}{{\^{E}}}1 {û}{{\^{u}}}1 {ú}{{\'{u}}}1 {â}{{\^{a}}}1 {à}{{\`{a}}}1 {á}{{\'{a}}}1 {ã}{{\~{a}}}1 {Á}{{\'{A}}}1 {Â}{{\^{A}}}1 {Ã}{{\~{A}}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {õ}{{\~{o}}}1 {ó}{{\'{o}}}1 {ô}{{\^{o}}}1 {Õ}{{\~{O}}}1 {Ó}{{\'{O}}}1 {Ô}{{\^{O}}}1 {î}{{\^{i}}}1 {Î}{{\^{I}}}1 {í}{{\'{i}}}1 {Í}{{\~{Í}}}1,
+}
+\let\verbatim\relax
+ 	\lstnewenvironment{verbatim}[1][]{\lstset{##1}}{}
+}
+
+\usepackage[T1]{fontenc}		
+\usepackage[utf8]{inputenc}		
+\usepackage{indentfirst}	
+
+\usepackage{listings}
+\usepackage[table,xcdraw]{xcolor}			
+\usepackage{graphicx}	
+\usepackage{physics}
+
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage[makeroom]{cancel}
+
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{nicematrix} %Matrizes bonitas
+\usepackage{xkcdcolors} %Cores do xkcd
+\usepackage{tikz, tcolorbox, bclogo} %Desenhos e afins
+\usepackage{empheq} %Caixas ao redor de equações em um align
+
+\usepackage{float}
+\usepackage{caption}
+\usepackage{cleveref}
+\usepackage{epigraph} 
+
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage[Sonny]{fncychap}
+
+
+\numberwithin{equation}{chapter}
+
+\definecolor{blue}{RGB}{41,5,195}
+
+\frenchspacing
+
+\begin{document}
+
+\newcommand{\titulo}{\textbf{Ian Bell's notes}\\ \textbf{Ii : Multivector Calculus}}
+\newcommand{\abnTeX}{abn\TeX}
+
+%begin{latexonly}
+\title{\titulo}
+
+\author{
+Artur R. B. Boyago
+}
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\section{Preface}
+
+All of the content here originally comes from \href{http://www.iancgbell.clara.net/maths/geoalg.htm}{Ian Bell's
+stunning 1999 page}. However,
+due to the outdated graphic design and possible depredation of the site in question, there is a 
+risk of the material eventually becoming unreadable, thus the PDF transcription.
+
+\vspace{\baselineskip}
+
+Further, I'd like to add lots of personal notes on this kind of mathematics from  studies
+in the matter in order to enhance the original material, so there will be undisclosed
+differences, as well as interjections in \textcolor{gray}{gray color}.
+
+The book is formatted in the same order as the original
+with all content reproduced in modern \LaTeX format. Many thanks, Artur.
+
+
+
+
+\chapter{Multivector Derivatives}
+\epigraph{Calculus required continuity, and continuity was supposed to require the infinitely little; but nobody could discover what the infinitely little might be.}{\textit{Bertrand Russell}}
+
+\section{Introduction}
+
+Multivector calculus is of interest for modelling fluidic flow, gravitational fields, and so
+forth. The intention here is to provide a quick inroad into the subject rather than a full 
+and formal presentation. For a rigourous approach, see Hestenes and Sobcyk.
+
+\vspace{\baselineskip}
+
+This document assumes familiarity with Multivectors. Notations defined in that document are 
+retained here. Note that we here use labels $\mathbf{e_1,e_2,\cdots e_n}$
+to denote a typically fixed, "base", "universal", "fiducial" frame 
+and $\mathbf{h}_{i_\mathbf{p}}$ to denote tangent vectors. In much of the literature,
+$\mathbf{e_i}$represent tangent or otherwise "motile" vectors while 
+$\sigma_i$ or $\gamma_i$ represent a "base frame".
+This document makes extensive use of subscripts and superscripts to indicate dependencies 
+usually "dropped" in conventional treatments and is, in consequnce, theoretically ambiguous. 
+Does $\mathbf{v}_{i\mathbf{p}}$ , for example, mean that $\mathbf{v}_i$ 
+is defined over or dependant on $\mathbf{p}$, 
+or that $\mathbf{v}$ is a function of $i_{\mathbf{p}}$? 
+In practice, meanings will be clear in context.
+
+\vspace{\baselineskip}
+
+Tensors are traditionally a difficult concept but multivectors make them far easier to
+understand, manipulate, and generalise. They are fundamental to many applications so we
+address them here.
+
+
+\section{Multivector functions as tensors}
+
+The traditional presentation of an $n$-dimensional tensor of integer rank $r$ is 
+a point-dependant $n^r$ element "array" or "matrix" defined with respect to a given 
+$n$-dimensional coordinate frame, that transforms according to particular rules in 
+accordance with transforms of the underlying coordinate frame. 
+
+\vspace{\baselineskip}
+
+Multivectors provide an attractive alternative (and more general) formulation under which the
+conventional tensor product follows directly from the geometric product. More formal 
+definitions of the following explicitly specify a "scalar source" from which to "build" linear combinations, but here we implicitly assume "real" scalars (from $\mathbb{R}$ or a 
+(finite-precision) approximation thereof). 
+
+\subsection{Fields}
+
+A \textbf{field} is a function $\mathbf{f} : \mathbb{R}^{p,q,r} \rightarrow 
+\mathcal{R}_{p,q,r}$, that is, it maps one point from the $\mathbb{R}^{p,q,r}$
+vector space and returns a multivector. 
+In other words: a \emph{point-dependant multivector}. If 
+the function is (unit) $k$-vector valued, we have a (unit) $k$-field. 
+A 0-field thus associates a scalar value with every point \textcolor{gray}{(Say temperature)},
+and a 1-field associates a 1-vector with every point \textcolor{gray}{(The electric field)},
+and a 2-field associates a 2-vector with every point \textcolor{gray}{(The magnetic field)}.
+
+\vspace{\baselineskip}
+
+From a programmers' perspective, fields are functions having at least one 1-vector parameter.
+This "primary" parameter is usually interpreted as a point or position. When the primary 
+argument is interpreted as a (scaled) direction rather than a point we will refer here to a 
+\emph{directional} $k$-field. 
+
+\subsection{Tensors}
+
+
+\begin{tcolorbox}[colback=white, colframe=blue!10!black, title=\textbf{Tensor definition} ]
+
+We regard an $n$-dimensional tensor of degree $k$ as a point-dependant multilinear 
+$n$-dimensional multivector-valued function of $k$ $n$-dimensional 1-vectors. 
+
+\begin{align*}
+    \mathbf{f_x} : (\mathbb{R}^{p,q,r})^k \rightarrow \mathcal{R}_{p,q,r}, \quad p+q+r=n
+\end{align*}
+
+\end{tcolorbox} 
+
+\vspace{\baselineskip}
+
+By \emph{multilinear} we mean linear in each argument. If $k=0$ \textcolor{gray}{($\mathbb{R}^0 \simeq \mathbb{R}$)}
+we have a point-dependant function taking no arguments and returning a (point-dependant) multivector, effectively a field.
+A $(t,0)-$tensor is thus a $t-$field, often refered to as an invariant tensor, though its "value" does in general vary with 
+$\mathbf{x}$.
+
+\vspace{\baselineskip}
+
+If $ \mathbf{f_x}\mathbf{(a_1, a_2, \cdots a_k)} =
+\langle \mathbf{f_x}\mathbf{(a_1, a_2, \cdots a_k)} \rangle_t $
+(ie. $\mathbf{f_x}$  is $t-$vector valued)
+we say the tensor has type $t$ and rank $(t+k)$ 
+and refer to it here as a $(t,k)-$tensor.
+
+\vspace{\baselineskip}
+
+\textcolor{gray}{
+In conventional tensor calculus, the order $(n,m)$ is given as the 
+number of vectors and forms (elements of the dual space) 
+$(V\oplus V \cdots V^* \oplus V^*)$ that compose the tensor, and the return type.
+In this case, a $(0,0)-$tensor returns a 0-vector and has a rank of $0$, and
+$(1,0)-$tensor returns a common 1-vector and has a rank of 1, and so forth. Now,
+often we may think of a $(0,k)$ tensor then as returning a $k-$form rather than a
+$k-$blade. That is, rather than an oriented volume we get the classic oriented
+hyperplane set that act as linear functionals of the dual space $V^*$.}
+
+\vspace{\baselineskip}
+
+\textcolor{gray}{For the sake of a full ´multivector´ interpretation, we may, however,
+interpret $(0,k)-$tensors as, in 3D space for example, a collection of $k$ three dimensional
+1-vectors that, in this case, may function as the analogue linear function by means of a reciprocal
+basis. \href{https://math.stackexchange.com/questions/3447049/intuitive-understanding-of-2-forms-1-1-tensors-and-other-fundamental-objects}{This mathstackexchange question also clarifies}
+certain doubts you may have.}
+
+\vspace{\baselineskip}
+
+From a programmers' perspective, tensors are multivector-valued functions of 
+at least one 1-vector argument, linear ("affine") in all but the primary argument.
+When $t=k$ we refer to a $k-$tensor rather than a $(k,k)-$tensor.
+A $k-$tensor is thus a point-dependant $k-$vector-valued multilinear 
+function of $k$ 1-vectors. 
+In particular, a 1-tensor is a point-dependant directional 1-field.
+
+\textcolor{gray}{Now, here we may see mixed degree tensors such as $(1,1)$
+as outputting a single 1-vector, but taking differential 1-forms as inputs as well.
+The total degree of this tensor is 2, and so we see we'd need \emph{two} indices
+to operate on other vectors, so something like $A_i^j$. where the $i$ index
+is below representing the 1-vector (covariant) component, and the $j$ index is
+representing the 1-form (contravariant) component. So a $(2,1)$ tensor, which has
+degree 3, would require $A_{ij}^l$, where both $i,j$ would act for our bivector
+output and the $l$ would serve for our 1-form.}
+
+\vspace{\baselineskip}
+
+The "scalar product" $\lrcorner$ is a $(0,2)-$tensor, though we usually write 
+$\mathbf{a\lrcorner b}$ in preference to $\lrcorner(\mathbf{a,b})$ \textcolor{gray}{(or $\mathbf{g(a,b)}$)}. 
+The outer product $\wedge$ is a 2-tensor. 
+The geometric product is a tensor of degree 2 but "mixed" type. 
+
+
+\subsection{Forms}
+
+If a $(t,k)-$tensor is \emph{skewsymmetric} in its arguments so that:
+
+\begin{align*}
+    \mathbf{f_x(a_1,a_2,\cdots a_k} = \mathbf{L_x(a_1 \wedge a_2 \wedge \cdots a_k)} = \mathbf{L_x(A_k)}
+\end{align*}
+
+Can be viewed as a function of a single $k-$blade rather than of $k$ 1-vectors,
+then it is called a skewsymmetric $(t,k)$-tensor or a $(t,k)$-multiform. 
+When $t=k$ we abbreviate to a $k-$multiform. If $t=0$ 
+(ie. $\mathbf{f_x}$  is scalar valued) then it is instead called a \textbf{$k$-form.} 
+A 1-multiform is a 1-tensor. It can be shown [see Hestenes & Sobczyk] that any $k-$form
+can be expressed as:
+
+\begin{align*}
+    L_{\mathbf{x}}(\mathbf{A}_k) = \mathbf{u_k \lrcorner A_k}
+\end{align*}
+
+Where  $\mathbf{u_k}$ is a point-dependant $k-$vector.
+
+\vspace{\baselineskip}
+
+If a $k$-multiform maps any given $k$-blade to another $k$-blade 
+(rather than to a $k-$vector) then we say the multiform is \emph{blade preserving.}
+A 1-tensor is thus a blade-preserving 1-form since any 1-vector is a 1-blade. 
+It can be shown that provided $k \ne n/2$, any blade preserving $k-$form
+is merely the outermorphism of a 1-form. For $k=n/2$, the geometric 
+dual prserves $k$-blades but is not an outermorphism.
+
+
+\subsection{Dyads}
+
+A $k-$dyad is a $k-$multiform of the form:
+
+\begin{align*}
+    D(\mathbf{A}_k) = \mathbf{u}_k ( \mathbf{v}_k \lrcorner \mathbf{A}_k)
+\end{align*}
+
+Where $\mathbf{u}_k, \mathbf{v}_k$ are point-dependant $k-$blades. 
+A $k-$multiform can be expressed in dyadic form as a sum of $k-$dyads. 
+A 1-dyad is known as a dyad. A 0-dyad is the "succesive" multiplicative 
+combination of two scalar fields $D_{\mathbf{x}}(a)=u_{\mathbf{x}}v_{\mathbf{x}} a$.
+
+\subsection{Multitensors}
+
+We can generalise a (t;k)-tensor to a (t;k)-multitensor) being a point dependant multivector-valued function of k multivectors Fp(a1,a2,...,ak) which is t-vector-valued when acting on k 1-vectors. , linear in all but the primary (point) argument.
+
+\vspace{\baselineskip}
+
+We will henceforth use the term tensor to refer to a multilinear multivector-valued function of k nonprimary 1-vector arguments and multitensor for a multilinear multivector-valued function of k nonprimary multivector arguments.
+
+\vspace{\baselineskip}
+
+ We will typically restrict the grade of the nonlinear "primary" multivector argument p to 1 and consider it as a 1-vector "point" p . If a multitensor is t-vector valued, we can regard it as a sum of (t;k)-forms with k ranging from 0 to N. 
+
+\subsection{Extended Fields}
+\subsection{Outermorphisms and Determinants}
+\subsection{Eigenblades}
+\subsection{Coordinate-based Tensor Representations}
+
+
+
+
+\section{Differentials}
+There are a number of different multivector derivatives and they can be approached in a 
+variety of ways. When defining any particular directed derivative ( Ða say) it suffices to
+define its action on scalars and 1-vectors since the product rule 
+$\grad $ then provides the directed differentiation of general multivectors. 
+
+
+\subsection{Directed Scalar Derivatives}
+\subsection{Linearity of the Differential}
+\subsection{Differentiating Exponentials}
+\subsection{The Directed Chain Rules}
+\subsection{Primary Differential}
+\subsection{Second Primary Differential}
+\subsection{Third Primary Differential}
+\subsection{Secondary Differential}
+\subsection{Lie Product}
+
+
+\section{Undirected derivatives}
+\section{Multivector Fractals}
+
+
+
+\chapter{Multivector Manifolds}
+\section{Curves and Manifolds}
+\section{Integration over a $M-$Curve}
+\section{Fourier Transform}
+\section{Differentiation within a $M-$Curve}
+\section{Fundamental Theorem of Calculus}
+\section{Poles and Residues}
+
+\chapter{Manifold Restricted Tensors}
+\section{Further differentials and derivatives}
+\section{Curvature 2-tensor}
+
+
+
+
+
+\chapter{The Coordinate Based Approach}
+
+\section{Streamline coordinates}
+\subsection{Introduction}
+
+\section{Lie Derivatives}
+\subsection{Lie Bracket}
+\subsection{Lie Drag}
+\subsection{Lie Derivative}
+\subsection{Covariant Frame}
+\subsection{Covectors}
+\subsection{Parallel Transport}
+\subsection{Linear Connection}
+\subsection{Directed coderivative}
+\subsection{Geodesics}
+
+\section{Curvature}
+\subsection{1-Curvature}
+\subsection{2-Curvature as ortho bi-circle}
+\subsection{Curvature Measures}
+\subsection{Curvature Measures of Polyhedral 2-curves}
+\subsection{Curvature as loop integrative limit / Holonomy}
+\subsection{Curvature as Coderivative Operator}
+\subsection{Symmetries and Bianchi Relations}
+
+\section{Torsion}
+
+
+
+
+
+
+
+\bibliographystyle{abbrv}
+\bibliography{referencias}
+
+    
+    
+
+\end{document}

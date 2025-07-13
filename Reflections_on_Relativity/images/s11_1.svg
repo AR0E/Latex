@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 246.35 145.25">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-2 {
+        fill: #414042;
+        stroke-width: 0px;
+      }
+
+      .cls-3, .cls-4 {
+        fill: none;
+        stroke: #414042;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-5 {
+        letter-spacing: .03em;
+      }
+
+      .cls-4 {
+        stroke-width: 2px;
+      }
+
+      .cls-6 {
+        fill: #231f20;
+        font-family: LMRoman10-Regular, 'Latin Modern Roman';
+        font-size: 10.25px;
+      }
+
+      .cls-7 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-8 {
+        letter-spacing: .03em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_3" data-name="Layer 3">
+    <polygon class="cls-4" points="94.33 105.65 1 105.65 77.22 76.53 170.56 76.53 94.33 105.65"/>
+    <line class="cls-4" x1="81.41" y1="105.65" x2="81.41" y2="144.25"/>
+    <g>
+      <line class="cls-4" x1="81.41" y1="89.79" x2="81.41" y2="48.28"/>
+      <polygon class="cls-2" points="81.41 39.81 86.29 51.74 81.41 48.91 76.53 51.74 81.41 39.81"/>
+    </g>
+    <ellipse class="cls-2" cx="81.41" cy="90.44" rx="3.5" ry=".65"/>
+    <text class="cls-6" transform="translate(37.24 10.65)"><tspan x="0" y="0">tem</tspan><tspan class="cls-8" x="17.07" y="0">p</tspan><tspan x="23.06" y="0">orally ordered,</tspan><tspan x="-3.12" y="10.04">su</tspan><tspan class="cls-8" x="6.61" y="10.04">b</tspan><tspan x="12.6" y="10.04">jecti</tspan><tspan class="cls-1" x="31.67" y="10.04">v</tspan><tspan x="36.79" y="10.04">e ex</tspan><tspan class="cls-5" x="54.71" y="10.04">p</tspan><tspan x="60.7" y="10.04">erience</tspan><tspan x="6.58" y="20.09">of one individual</tspan></text>
+    <path class="cls-2" d="M33.22,36.13c-.24,0-2.31-2.35-3.76-6.79-1.33-4.08-1.59-8.45-1.59-11.27,0-3.03.29-7.05,1.52-11.02,1.42-4.59,3.59-7.05,3.83-7.05.14,0,.24.11.24.36,0,.11,0,.18-.31.61-2.96,4.52-3.88,10.8-3.88,17.09,0,5.53.77,12.36,3.78,16.91.41.61.41.69.41.79,0,.25-.1.36-.24.36Z"/>
+    <path class="cls-2" d="M131.98,29.08c-1.42,4.59-3.59,7.05-3.83,7.05-.14,0-.24-.14-.24-.36,0-.11,0-.18.31-.61,2.99-4.55,3.88-10.91,3.88-17.09,0-7.55-1.37-13.3-3.73-16.87-.46-.65-.46-.72-.46-.83,0-.22.1-.36.24-.36.24,0,2.31,2.35,3.76,6.79,1.33,4.08,1.59,8.45,1.59,11.27,0,3.03-.29,7.05-1.52,11.02Z"/>
+    <text class="cls-6" transform="translate(159.46 111.39)"><tspan x="0" y="0">conception of the</tspan><tspan x="1.08" y="10.04">spatially ordered</tspan><tspan x="4.54" y="20.09">o</tspan><tspan class="cls-8" x="9.66" y="20.09">b</tspan><tspan x="15.65" y="20.09">jecti</tspan><tspan class="cls-1" x="34.72" y="20.09">v</tspan><tspan x="39.84" y="20.09">e </tspan><tspan class="cls-1" x="47.8" y="20.09">w</tspan><tspan x="54.91" y="20.09">orld</tspan><tspan x="24.77" y="30.14">“n</tspan><tspan class="cls-7" x="35.3" y="30.14">o</tspan><tspan x="40.14" y="30.14">w”</tspan></text>
+    <path class="cls-2" d="M156.51,140.87c-.24,0-2.31-2.35-3.76-6.79-1.33-4.08-1.59-8.45-1.59-11.27,0-3.03.29-7.05,1.52-11.02,1.42-4.59,3.59-7.05,3.83-7.05.14,0,.24.11.24.36,0,.11,0,.18-.31.61-2.96,4.52-3.88,10.8-3.88,17.09,0,5.53.77,12.36,3.78,16.91.41.61.41.69.41.79,0,.25-.1.36-.24.36Z"/>
+    <path class="cls-2" d="M244.83,133.83c-1.42,4.59-3.59,7.05-3.83,7.05-.14,0-.24-.14-.24-.36,0-.11,0-.18.31-.61,2.99-4.55,3.88-10.91,3.88-17.09,0-7.55-1.37-13.3-3.73-16.87-.46-.65-.46-.72-.46-.83,0-.22.1-.36.24-.36.24,0,2.31,2.35,3.76,6.79,1.33,4.08,1.59,8.45,1.59,11.27,0,3.03-.29,7.05-1.52,11.02Z"/>
+    <g>
+      <path class="cls-3" d="M148.8,122.89c-5.85.85-12.05-1.34-16.07-5.67-2.45-2.64-4.08-5.96-5.17-9.4-.73-2.3-1.22-4.66-1.64-7.04"/>
+      <polygon class="cls-2" points="128.42 102.05 126.07 101.5 124.04 102.81 125.34 97.24 128.42 102.05"/>
+    </g>
+  </g>
+</svg>
