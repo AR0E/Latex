@@ -1,0 +1,137 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/roaldarbol/academicv/main/cv.typ.schema.json
+
+# $schema=../cv.typ.schema.json
+
+# Document settings
+settings:
+  font-heading: "CMU Bright"
+  font-body: "CMU Bright"
+  fontsize: 10pt
+  spacing-section: 12pt
+  spacing-entry: 0.1em
+  spacing-element: 3pt
+  spacing-line: 5pt
+  color-hyperlink: rgb(50, 50, 180)
+  page:
+    paper: "a4"
+    numbering: "1 / 1"
+    number-align: "center"
+    margin: 3.5cm
+
+# Personal information
+personal:
+  name: Artur Boyago
+  titles:
+    - Computational Physicist
+    - Electric Engineer
+  location:
+    city: São Carlos
+    country: BR
+  contact:
+    email: ar.bb@usp.br
+    phone: "+55 (11) 98977-9191"
+    website: https://ar0e.github.io
+  profiles:
+    - network: GitHub
+      username: johndoe
+      url: https://github.com/johndoe
+      icon: SVG/github.svg
+    - network: LinkedIn
+      username: johndoe
+      url: https://linkedin.com/in/johndoe
+      icon: SVG/linkedin.svg
+
+# Section definitions and content
+sections:
+  - key: personal
+    layout: header
+    show: true
+    include: ["titles", "location", "contact", "profiles"]
+
+  - key: statement
+    layout: prose
+    title: Professional Summary
+    show: true
+    entries:
+      - Mathematical physicist specializing in spin geometry, with computational geometry expertise. Research focuses on geometric algebra applications to physics, complemented by practical experience in analog electronics and mechatronic systems. Experience in embedded systems.
+    
+
+  - key: education
+    layout: timeline
+    primary-element: ["institution"]
+    secondary-element: ["title"]
+    title: Education
+    show: true
+    entries:
+      - institution: Universidade de São Paulo - IFSC
+        location: São Carlos, SP
+        title: BS in Physics, Minor in Computer Science
+        start-date: 2025
+        end-date: 2028
+        
+      - institution: ETEC - Takashi Morita
+        location: São Paulo, SP
+        title: Industrial Automation and Electronics
+        start-date: 2019
+        end-date: 2022
+
+
+  - key: experience
+    layout: timeline
+    primary-element: ["institution"]
+    secondary-element: ["title"]
+    tertiary-element: ["description"]
+    title: Experience
+    show: true
+    entries:
+      - institution: EESC - USP Guepardo
+        title: Lead Designer
+        start-date: 2023
+        end-date: Present
+        description: |
+          Lead a team of five data scientists developing computer vision algorithms for autonomous systems. Developed and deployed machine learning models that improved object detection accuracy by 35% while reducing false positives by 40%. Collaborated with cross-functional teams to integrate AI solutions into production systems.
+      - institution: MIT - Summer Geometry Initiave
+        title: Machine Learning Engineer
+        start-date: 2024/2025
+        end-date: 
+        description: |
+
+  - key: publications
+    layout: numbered-list
+    title: Publications
+    show: true
+    entries:
+      - "*Boyago, Silva* (2025). _Variations of Hamiltonian Flows_ In *American Physical Society* (ICML 2023)."
+
+
+
+  - key: teaching
+    layout: timeline
+    primary-element: ["title", "institution"]
+    secondary-element: ["professors"]
+    tertiary-element: ["description"]
+    title: Teaching Experience
+    show: true
+    entries:
+      - institution: Stanford University
+        title: Differential Geometry
+        professors: ["Prof. Sarah Johnson"]
+        start-date: 2018
+        end-date: 2019
+        description: |
+          Teaching assistant for graduate-level course. Led weekly discussion sections, created homework assignments, and held office hours for a class of 120 students.
+
+
+  - key: awards
+    layout: timeline
+    primary-element: ["title", "institution"]
+    tertiary-element: ["description"]
+    title: Honors & Awards
+    show: true
+    entries:
+      - institution: National Science Foundation
+        title: Graduate Research Fellowship
+        start-date: 2015
+        end-date: 2018
+        description: |
+          Three-year fellowship funding doctoral research in computer science.
