@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 121.83 132.92">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 12px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #414042;
+      }
+
+      .cls-1, .cls-3 {
+        font-family: LMRoman10-BoldItalic, 'Latin Modern Roman';
+        font-style: italic;
+        font-weight: 700;
+      }
+
+      .cls-4, .cls-5, .cls-6 {
+        stroke-width: .75px;
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-4, .cls-7 {
+        stroke: #414042;
+      }
+
+      .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-5, .cls-6 {
+        stroke: #808285;
+      }
+
+      .cls-6 {
+        stroke-dasharray: 0 0 5.17 5.17;
+      }
+
+      .cls-3 {
+        font-size: 10.25px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path class="cls-5" d="M6.48,125.42c.84,0,1.67-.04,2.49-.12"/>
+      <path class="cls-6" d="M14.03,124.26c32.69-10.35,44.58-86.64,47.2-107.12"/>
+      <path class="cls-5" d="M61.55,14.57c.19-1.6.28-2.48.28-2.48"/>
+    </g>
+    <path class="cls-5" d="M6.48,33.34c5.21,0,5.21,2,10.42,2s5.21-2,10.42-2,5.21,2,10.42,2,5.21-2,10.43-2,5.21,2,10.43,2"/>
+    <path class="cls-5" d="M6.48,60.06c3.84,0,3.84,2,7.68,2s3.84-2,7.69-2,3.84,2,7.69,2,3.84-2,7.69-2,3.85,2,7.69,2,3.85-2,7.69-2"/>
+    <path class="cls-5" d="M6.48,86.78c2.04,0,2.04,2,4.08,2s2.04-2,4.08-2,2.04,2,4.08,2,2.04-2,4.08-2,2.04,2,4.08,2,2.04-2,4.08-2,2.04,2,4.08,2,2.05-2,4.09-2,2.05,2,4.09,2"/>
+    <path class="cls-5" d="M6.48,114.23c1.1,0,1.1,2,2.21,2s1.1-2,2.21-2,1.1,2,2.2,2,1.1-2,2.21-2,1.1,2,2.21,2,1.1-2,2.21-2,1.1,2,2.21,2,1.11-2,2.21-2,1.11,2,2.21,2"/>
+    <path class="cls-4" d="M6.48,125.42c25.37,0,39.88-41.28,51.35-56.11s21.91-14.83,29.02-18.17,16.4-18,16.69-26.33"/>
+    <g>
+      <line class="cls-7" x1=".5" y1="125.42" x2="106.47" y2="125.42"/>
+      <polygon class="cls-2" points="110.7 125.42 104.73 127.86 106.15 125.42 104.73 122.98 110.7 125.42"/>
+    </g>
+    <g>
+      <line class="cls-7" x1="6.48" y1="132.42" x2="6.48" y2="16.32"/>
+      <polygon class="cls-2" points="6.48 12.09 8.92 18.06 6.48 16.64 4.04 18.06 6.48 12.09"/>
+    </g>
+    <text class="cls-3" transform="translate(1.96 8.64)"><tspan x="0" y="0">U</tspan></text>
+    <text class="cls-1" transform="translate(114.59 128.26)"><tspan x="0" y="0">x</tspan></text>
+  </g>
+</svg>
