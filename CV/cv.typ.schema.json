@@ -125,14 +125,21 @@
             ],
             "properties": {
               "network": {
-                "type": "string"
+                "type": "string",
+                "description": "Name of the social network or platform (e.g., 'GitHub', 'LinkedIn', 'Twitter')"
               },
               "username": {
-                "type": "string"
+                "type": "string",
+                "description": "Username on the platform"
               },
               "url": {
                 "type": "string",
-                "format": "uri"
+                "format": "uri",
+                "description": "Full URL to the profile"
+              },
+              "icon": {
+                "type": "string",
+                "description": "Path to SVG icon file relative to the project root (e.g., 'icons/github.svg')"
               }
             }
           }
