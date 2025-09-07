@@ -1,0 +1,485 @@
+\chapter{Introduction}
+
+\paragraph{The current market.}
+The (digital) world is \textit{covered} in meshes: evaluated at more than
+USD $238$\textit{ billion} \cite{360iMarket2025ComputerGraphics} in
+2024, and expected to reach around USD $372$ \textit{billion} by 2030,
+the computer graphics community is in virtually every
+segment of the industrial and scientific world. From 
+\textit{Finite Element Methods} (FEM) employed for the
+simulations of fluids,
+stellar coronae and static deformations, to
+stunning award-winning visual effects accomplished
+by \textit{Weta} and \textit{Pixar}, and a variety of robotics,
+machine learning and medical applications, \textit{\textbf{meshes}}
+are the most used backbone to all these areas, underlying
+the majority of the used software and mathematical
+constructions.
+
+\spa
+
+The applications of most interest
+to this study relate to \textit{2-triangulated} (triangle) meshes used in practical
+geometrical steps to many algorithms and artistic endeavours, be it
+texture wrapping, variational cutting, and mesh reconstruction
+from point primitives, as well to the disciplines of physical simulations 
+with mesh based methods, such as \textit{FEM/BEM/ISPEM}, which involve
+\textit{3-triangulated} (tetrahedron) as well as standard 2-triangulated meshes.
+A sample application is the one in producing
+topologically stable \textit{geodesic tracings} on broken or highly deformed
+objects, with the intent of later producing accurate transformations
+or calculating partial differential equations on them by means of a metric
+compensation, and the calculation of fluid flow on curved surfaces:
+
+\begin{figure}[h]
+    \centering
+    % First image
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/bunny_heat.png}
+    \end{subfigure}
+    % Second image
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/soap_film.png}
+    \end{subfigure}
+    
+    \caption{Production of geodesics on a bunny mesh by means of the
+    \textit{heat method} \cite{Crane:2017Heat}, and simulation of a soap
+    film on Costa's minimal surface \cite{chern_cohomology}.
+    Source: Crane, Chern.}
+    \label{fig:two-images}
+\end{figure}
+
+
+Given their plethora of applications and usefulness, it makes sense to develop
+very robust mathematical methods to manipulate meshes in physical
+and mathematical contexts. However, the difficulties for this rise rapidly
+when the context for current industrial standards come into play:
+with over \textit{a 100 different file formats} (\texttt{.obj, .wav} ...) \cite{wiki_Files},
+and more than \textit{30 major} software packages of manipulating 
+said files, we then have 4 different coordinate system conventions,
+different spline parametrization conventions, and dozens of small
+variations in geometric primitives and data structures.
+
+\spa
+
+\paragraph{Mesh quality.} Further, supposing you take all this into account, we still have
+the actual \textit{quality} of the meshes to take into consideration.
+The vast majority of geometric data, period, is extremely \textit{irregular},
+being mostly harvested from physical sensors and observation equipment, but
+even purely digitally produced data is full of degenerate artifacts due
+to poor practices and mesh production algorithms.
+This means a large part of geometry processing algorithms on meshes
+\textit{fail} for big datasets, since they can't handle all
+the possible edge cases unless otherwise explictly told to.
+
+
+\begin{figure}[h]
+    \centering
+    % First image
+    \begin{subfigure}[t]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/mesh1.png}
+    \end{subfigure}
+    % Second image
+    \begin{subfigure}[t]{0.46\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/mesh2.png}
+    \end{subfigure}
+    
+    \caption{Difficulties in mesh quality vary from extremely high
+    polygon density, sheared triangles, unpatched holes, lack of
+    connectivity, highly skewed geometry, etc.
+    Source: Nicholas Sharp.}
+    \label{fig:two-images}
+\end{figure}
+
+Therefore, either you need to \textit{manually} clean up your meshes,
+or produce one from scratch given some other geometric data, which is
+a very laborious, time consuming procedure, requiring artistics and technical
+expertise. Consider the manual meshing process of a \textit{Formula 1 car}
+\cite{beta-cae-cfd-formula-car}, which even for simple models
+can take up to a week, or almost any mesh production for CFD simulation.
+
+\spa 
+
+A great part of mesh processing algorithms still need to be
+manually tuned and selected by experts, be it researchers or artists,
+to be used, and this manual tweaking can often \textit{break}
+the desired properties of the algorithm in the first place.
+The greatest offenders are the so-called \textit{variational
+crimes} \cite{szabo2024-not-all-models_crimes} in many FEM solvers, which break the behavior and accuracy
+of variational (e.g Garlekin) methods by poor geometric
+considerations, all of which can be fixed by more geometric-centry
+algorithms, such as by \textit{Finite Element Exterior Calculus} \cite{Holst_2012_variationalCrimes}; these errors are \textit{exceptionally}
+dangerous, because, as reported many times \cite{suri2024-cracks-sciam_variationalCrimes},
+they can introduce very dangerous vulnerabilities in airplanes, boats, and
+other critical equipment and infrastructure, since the related models
+don't actually converge to the physically real answer, leading to
+underestimations of stress, and etc. Therefore, even more than just
+convencience, new geometric methods are needed for safety.
+
+
+\spa
+
+A simpe illustration of this phenomena is by the distinction in the simulation
+of \textit{hyperbolic} or \textit{elliptic} differential operators.
+Altough elliptic operators are generally as smooth as the input data and
+conditions permit them to be, hyperbolic operators usually contain
+naturally discontinuous and badly-behaved solutions \cite{singular_FEM}, 
+such as shocks
+and solitons, therefore many methods fail to even properly
+capture the actual node-behvaior, much less convergence, of the solutions.
+An example is in the solutions of the \textit{Poisson problem},
+a smooth "screened" Laplacian problem,
+and of the \textit{Inviscid Burguers problem}, a fairly simple
+nonlinear wave equation with dissipation in fluid dynamics.
+Because of the presence of modes proportional to the
+gradient, it develops sharp gradients which then become
+\textit{shocks} \cite{Cameron2025burgers}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/hyperbolic_operators.png}
+    \caption{Comparison of an elliptic operator, the Poisson problem,
+    and the hyperbolic inviscid Burguers problem, which contains
+    jump discontinuities and shocks Source: Author}
+    \label{fig:two-vertical-images}
+\end{figure}
+
+
+\section{Justification}
+
+
+\paragraph{Mesh agnosticism}
+All of this leads to the question of how to efficiently produce new
+algorithms that can process \textit{ any} mesh, regardless
+of its quality or origin? It is of note how appreciably hard this
+problem is, given that in such an active landscape it hasn't been
+satisfactorily solved yet, but it is not \textit{impossible}.
+In the last 10-15 years, new techniques have been slowly implemented
+by research groups such as the \href{https://github.com/GeometryCollective}{\textit{Geometry Collective}} and \href{https://scholar.google.com/citations?hl=de&user=FNe48c8AAAAJ&view_op=list_works&sortby=pubdate}{\textit{Ulrich Pinkall's group}}
+and many more as to create \textit{mesh agnostic} methodologies.
+
+\spa
+
+These are done
+under the general guise of \textit{discrete analysis}
+and \textit{discrete differential geometry}, or \textit{DDG}. 
+The \textit{lemma} of DDG is similar to the "quantization" procedure of physics; 
+given the \textit{discretization} of a smooth shape, is it possible to,
+in the limit of \textit{homogeneity}, that is, of \textit{infinite} mesh resolution,
+recover all the given results of regular geometry
+\cite{Crane_discrete}? Further, is it possible
+to make similar analogues to theorems even in low resolution scenarios?
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Lema_DDG2.png}\\[1.7ex] % 1ex adds vertical spacing
+    \includegraphics[width=0.7\textwidth]{images/discrete_curvature.png}
+    \caption{The \textit{lemma} of DDG (top), and the variety of possible
+    curvature measures on a discrete polygonal curve (bottom). Source: Author, Crane.}
+    \label{fig:two-vertical-images}
+\end{figure}
+
+For example, naturally, the \textit{extrinsic curvature}
+of an object may defined on a parametrized curve
+$\gamma(s)$ as $\kappa = \langle N, \Ddot{\gamma}(s)\rangle$, that is, the normal projected
+onto the "acceleration". For any
+$C^2-$curve, this is of course well-defined
+and well behaved, but what of a discrete,
+polygonal curve? Any attempt to take the second
+derivative of a piece-wise discrete function
+will lead to the curvature being \textit{infinite}.
+Nevertheless, we can produce \textit{multiple}
+"curvature measures of said" curve that,
+in the infinite polygon limit, mimic the
+exact smooth curvature \cite{Crane:2013:DGP}.
+
+\spa
+
+Taking this idea to its limit, we then
+finally arrive at the project's full proposal,
+which is a subproject of the area of DDG
+to a full coverage of \textbf{discrete mesh differential operators}, which is a
+map between the often known differential
+operators in the smooth $C^\infty(\mathcal{M})$
+setting to the discrete, piecewise setting.
+This mapping allows for a full reproduction
+of the results of the theory of \textit{partial
+differential equations, algebraic topology} and more
+onto the computational setting.
+
+
+\spa
+
+\paragraph{Spectral geometry processing.} Let's use a simple example of the discretization procedure,
+and perhaps its most important.
+Given the regular \textit{Hodge-Laplace} operator ($\bf{\Delta}$) on a smooth
+manifold $\mathcal{M}$, we may define the \textit{discrete} equivalent
+by means of a \textit{intrinsic Delaunay triangulation} procedure \cite{laplacian0}. 
+
+\begin{definition}[Discrete Hodge-Laplace operator on 0-forms]
+Let $(\mathcal{M},g)$ be a smooth oriented Riemannian surface and 
+$\Delta := \delta d + d \delta$ the Hodge--Laplace operator, where
+$d$ is the exterior derivative and $\delta = (-1)^{nk+1} \star d \star$ is the codifferential
+on $k$-forms in dimension $n$. 
+On $0$-forms $f \in \Omega^0(\mathcal{M})$, this reduces to
+\[
+   \Delta f = \delta (df),
+\]
+the usual Laplace--Beltrami operator on functions.
+
+\spa
+
+Let $\bf M=(V,E,F)$ be a simplicial surface mesh approximating $\mathcal{M}$, with
+vertices $\mathbf{V}$, edges $\mathbf{E}$, and triangular faces $\mathbf{E}$. For an interior edge 
+$ij \in \mathbf{E}$ shared by two triangles $(i,j,k)$ and $(i,j,\ell)$, let
+$\alpha_{ij}, \beta_{ij}$ denote the angles opposite $ij$ in those triangles. 
+The \emph{cotangent weight} for edge $ij$ is
+\[
+   w_{ij} \;=\; \tfrac{1}{2}\big(\cot \alpha_{ij} + \cot \beta_{ij}\big),
+\]
+while for a boundary edge $ij$ (incident to a single face with opposite angle
+$\alpha_{ij}$) one sets $w_{ij} = \tfrac{1}{2}\cot \alpha_{ij}$.
+
+\spa
+
+The \textbf{\emph{discrete Hodge--Laplace operator}} (a.k.a.\ cotangent Laplacian)
+acting on $0$-forms $u:V\to\mathbb{R}$ is the matrix
+$L \in \mathbb{R}^{|V|\times |V|}$ with entries
+\[
+   (L f)_{ij} = \frac{1}{2a_i} \sum_{i,j \ \in \ \mathbf{E}} (\cot \alpha_{ij} +
+   \cot \beta_{ij}) \ (f_i -f_j)
+\]
+Then for any function $u:V\to \mathbb{R}$, the discrete Laplacian is 
+$(Lu)(i) = \sum_{j:\, ij\in E} w_{ij}\,\big(u(i)-u(j)\big)$.
+This operator is symmetric, has rows summing to zero, and
+converges to the smooth Laplace--Beltrami operator under mesh refinement.
+\end{definition}
+
+\spa
+
+\begin{figure}[h]
+    \centering
+\includegraphics[width=1.1\textwidth]{images/cotagent_laplace.png}
+    \caption{Comparison of the solutions of the discrete
+    cotagent laplacian on a discretized mesh and the smooth
+    laplacian. Source: Author}
+    \label{fig:two-vertical-images}
+\end{figure}
+
+This operator is very much the "swiss-army knife"
+\cite{laplacian2} of geometry processing algorithms; the
+main motivation comes to that the Laplacian is the lowest
+order differential operator that is self-adjoint and elliptic,
+and has the largest significance physically as one can
+prove that any operator that commutes with rotations
+and translations is just a linear combination of the
+laplacian. For the general eigenvalue Helmholtz problem
+where a solution will always be $u_k(\mathbf{x},t) = \alpha_k(t) \phi_k(\mathbf{x})$:
+
+\begin{equation*}
+    \mathbf{\Delta} \phi_k = \lambda_k \phi_k, \quad \lambda_k \in \mathbb{C}
+\end{equation*}
+
+We may have solutions \cite{canzani2013analysis_laplacian}:
+
+\begin{equation*}
+    \alpha_k(t) = \begin{cases}
+        \exp(-\lambda_k t) \quad            &\text{Heat equation}\\
+        \exp(i \sqrt{\lambda_k} t) \quad    &\text{Wave equation}\\
+        \exp(i \lambda_k t) \quad           &\text{Schrödinger equation}
+    \end{cases}
+\end{equation*}
+
+This permits a variety of deductions, from estimating the boundary
+behavior (in his famous essay \textit{Can One Hear the Shape of a Drum?} \cite{Kac1966drum})
+as well as estimating the actual deformation properties
+of the volume and area elements, estimating distances,
+so on and so forth.
+
+\spa
+
+However, in the same vein as the discrete extrinsic curvature,
+there are \textit{many} Laplacian choices that need to respect
+the smooth laplacian, all of which with their own pros and cons
+\cite{laplacian1} (The positive-semi definitess was only recently
+fixed with the intrinsic Delaunay Laplacian, for example). That is,
+there are many equivalent choices that approach the limit of the smooth
+one. 
+
+\spa
+
+This introduces the problem of choice: what are the \textbf{error
+metrics} one needs in order to determine the best discrete operator?
+More, what is a general procedure of constructing them if they're
+generally non-unique? This lack of well-posedness forces us
+to make some kind of general \textit{availability} criteria,
+as to wheter or not the properties of an operator $D$ in the smooth
+setting are availble to us in the discrete one.
+
+\paragraph{Beyond $0-$forms.}
+Beyond the simple Laplacian, we also have the
+famous \textit{Dirac operator}, its famous
+"square root", and the fundamental
+equation of relativistic quantum theory.
+
+Folloiw
+
+\begin{definition}[Discrete extrinsic Dirac operator]
+
+
+
+\begin{equation}
+    D \phi \def -\frac{dg \wedge df}{}
+\end{equation}
+
+We $dz \wedge d\bar{z} = -2i|df|^2$
+
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Previous work}
+
+\paragraph{Discrete analysis.}
+A large amount of work on discrete operator theory has already been
+done, even previous to the advent of much of modern computing, by means
+of \textit{discrete analysis}. Examples include the famous
+\textit{Regge Calculus} of general relativity \cite{cuzinatto2019introductionreggecalculusgravitation},
+or in the study of topology and homotopical algebra by means
+of simplicial complexes and sheaves \cite{castel2021_morse}. The
+\textit{expansion} of these discrete theories for computational
+purposes has also been massively sucessful and applied
+in a dozen or so different mathematical areas; a lot of these
+results however are quite \textit{scattered}, so a thorough
+literature review is necessary.
+
+\spa
+
+Specific to our purposes is most of the literature related to
+the \textit{discrete exterior calculus} (DEC) 
+\cite{Wang:2023:ECIG, Pt_kov__2021_exterior}, including
+extensions for bundle-valued elements \cite{braune2025discreteexteriorcalculusbundlevalued}
+and methods 
+therein as to implement all of the basic differential operators and
+simplicial complex theory in computers, such as
+\textit{discrete connections} \cite{Crane:2010:TCD},
+\textit{homology} \cite{homology_discrete, dean_homology} and \textit{cohomology} measures,
+and other differential geometric quantities \cite{algebraic_topology}.
+A couple of works have already implement partly or purely functional libraries
+of DEC such as in the Rust language \cite{wirth2025rustimplementationfiniteelement},
+or more sophisticated Clifford algebraic libraries such as in Javascript
+\href{https://github.com/enkimute/ganja.js}{ganja.js}.
+
+\spa
+
+\paragraph{Differential taxonomy.}
+Somewhat general frameworks for discrete differential operators
+in meshes are already present
+\cite{discrete_operators, discrete_operator2, discrete_operators3}, including well posed
+parabolic differential operators \cite{Parabolic_Discrete}.
+Of particular interest to the the author is in the distinctions
+and manipulation of \textit{intrinsic, extrinsic, scalar} and \textit{hypercomplex}
+operators. The first two categories verify how much on the normal vectors of the
+given mesh the operator depends on; the more it is solely defined
+by edge/vertex relationns, the more intrinsic it is, and the two
+other categories distinguish between operators that act on and
+output
+$0-$forms $f(\mathbf{x})$, regular functions, and operators that take as either
+input or output $(p,q)-$valued forms or general hypercomplex numbers, such
+as \textit{quaternions} \cite{Crane:2011:STD, conformal_chern, palmer2021framefieldoperators}, spinors
+\cite{Liu:2017:DOE, spinorsMesh}, and multivectors/Clifford
+numbers in general \cite{discrete_clifford, budinich2018clifford, discrete_clifford2,360iMarket2025ComputerGraphics, Hypercomplex_discrete}.
+Of future interest is the implementation of techniques of the physical
+sciences \cite{krasilshchik1998homologicalmethodsequationsmathematical}
+into these methodologies.
+
+\spa
+
+Based on previous surveys \cite{WANG201941}, we have made a small table
+of the current landscape of operators (not ehxaustive):
+
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{8pt}
+\renewcommand{\arraystretch}{1.15}
+
+% left column: fixed width & vertically centered; others: auto-wrap
+\begin{tabularx}{\linewidth}{M{3.1cm} Y Y}
+\toprule
+& \multicolumn{1}{c}{\textbf{Intrinsic}} & \multicolumn{1}{c}{\textbf{Extrinsic}} \\
+\midrule
+\textbf{Scalar} &
+\diagcell{%
+\textbullet\enspace Laplace--Beltrami (cotan)\\
+\textbullet\enspace Graph Laplacian\\
+\textbullet\enspace Anisotropic Laplacians%
+}{%
+\textbullet\enspace Hessian operators\\
+\textbullet\enspace Schr\"odinger/Hamiltonian\\
+\textbullet\enspace Connection Laplacian%
+}
+&
+\twocol{%
+\textbullet\enspace Dirichlet-to-Neumann\\
+\textbullet\enspace Volumetric Laplacian\\
+\textbullet\enspace Shape operator%
+}{%
+\textbullet\enspace Mean curvature flow\\
+\textbullet\enspace Curvature Laplacian%
+}
+\\
+\midrule
+\textbf{Hypercomplex} &
+\twocol{%
+\textbullet\enspace Intrinsic Dirac\\
+\textbullet\enspace Quaternionic Laplacian%
+}{%
+\textbullet\enspace Spinor Dirac\\
+\textbullet\enspace Cauchy--Riemann / Beltrami%
+}
+&
+\diagcell{%
+\textbullet\enspace Extrinsic Dirac\\
+\textbullet\enspace Relative Dirac%
+}{%
+\textbullet\enspace Conformal deformation ops\\
+\textbullet\enspace Spinorial shape ops%
+}
+\\
+\bottomrule
+\end{tabularx}
+
+\caption{Dictionary of mesh operators by intrinsic/extrinsic and scalar vs.\ hypercomplex.}
+\label{tab:mesh-operators}
+\end{table}
+
+\spa 
+
+\begin{figure}[h]
+    \centering
+\includegraphics[width=1.0\linewidth]{images/dirac_operator_shapes.png}
+    \caption{Gradient between intrinsic scalar (Laplace) and
+    extrinsic hypercomplex (Dirac) operators. Source: Crane.}
+    \label{fig:two-vertical-images}
+\end{figure}

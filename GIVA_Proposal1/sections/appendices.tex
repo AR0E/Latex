@@ -1,0 +1,105 @@
+\begin{appendices}
+\chapter{A}
+Appendix one text goes here.
+
+\begin{definition}[Well-posed problem (``good behavior'')]
+A problem for a PDE is \emph{well-posed} if (i) it has a solution, (ii) the solution is unique, and (iii) the solution depends continuously on the data. 
+\end{definition}
+
+\begin{definition}[Classical solution]
+Let $k\ge 1$ be the order of the PDE. A \emph{classical solution} is a function $u$ that is at least $C^k$ so that all derivatives appearing in the PDE exist and are continuous; we then solve the PDE in the classical sense subject to (well-posedness) items (i)–(iii) when applicable.
+\end{definition}
+
+\begin{definition}[Weak (variational) solution — elliptic case]
+For a divergence-form elliptic operator 
+\[
+L u \;=\; -\sum_{i,j=1}^n a_{ij}(x)\,u_{x_i x_j} + \sum_{i=1}^n b_i(x)\,u_{x_i} + c(x)\,u
+\]
+on a domain $U$, with right-hand side $f$, define the bilinear form
+\[
+B[u,v] \;:=\; \int_U \Big(\sum_{i,j} a_{ij}\,u_{x_i} v_{x_j} \,+\, \sum_i b_i\,u_{x_i} v \,+\, c\,u\,v\Big)\,dx.
+\]
+We call $u\in H_0^{1}(U)$ a \emph{weak solution} of $Lu=f$ with $u|_{\partial U}=0$ if
+\[
+B[u,v] \;=\; (f,v)_{L^2(U)} \quad \text{for all } v\in H_0^{1}(U).
+\]
+\end{definition}
+
+\begin{definition}[Weak (variational) solution — parabolic case]
+For the parabolic problem $u_t+L u=f$ on $U\times(0,T)$ in divergence form with the time–dependent bilinear form $B[\cdot,\cdot; t]$, a function
+\[
+u \in L^2(0,T; H_0^{1}(U)),\quad u' \in L^2(0,T; H^{-1}(U))
+\]
+is a \emph{weak solution} if, for a.e.\ $t\in(0,T)$ and every $v\in H_0^1(U)$,
+\[
+(u'(t),v)_{H^{-1},H_0^1} \;+\; B[u,v; t] \;=\; (f(t),v)_{L^2(U)}.
+\]
+\end{definition}
+
+\begin{definition}[Regularity (of weak solutions)]
+The \emph{regularity problem} asks whether a weak solution is in fact smoother (e.g.\ belongs to higher Sobolev spaces or is $C^\infty$). For elliptic problems, a typical gain reads: if $-\,\Delta u=f$ with $f\in H^m$, then (morally) $u\in H^{m+2}$, i.e.\ $u$ has ``two more derivatives in $L^2$'' than $f$.
+\end{definition}
+
+\begin{definition}[Blow-up]
+A solution $u$ \emph{blows up in finite time} if there exists $0<t_*<\infty$ such that some natural norm or quantity associated with $u(\cdot,t)$ becomes unbounded as $t\uparrow t_*$. For instance, in the nonlinear heat example in Evans, one obtains 
+\[
+\lim_{t\uparrow t_*} \int_U u(x,t)\,w_1(x)\,dx \;=\; +\infty
+\]
+(for a fixed positive first eigenfunction $w_1$), and in this situation one says that $u$ blows up at time $t_*$.
+\end{definition}
+
+% Ellipticity and parabolicity (Evans)
+\begin{definition}[Uniform ellipticity (second-order operator)]
+Let
+\begin{align*}
+Lu = -\sum_{i,j=1}^n (a_{ij}(x) u_{x_i})_{x_j} \;+\; \sum_{i=1}^n b_i(x)\,u_{x_i} \;+\; c(x)\,u
+\\
+Lu = -\sum_{i,j=1}^n a_{ij}(x) u_{x_i x_j} \;+\; \sum_{i=1}^n b_i(x)\,u_{x_i} \;+\; c(x)\,u,
+\end{align*}
+
+with $a_{ij}=a_{ji}$. We say $L$ is \emph{(uniformly) elliptic} if there exists $\theta>0$ such that
+\[
+\sum_{i,j=1}^n a_{ij}(x)\,\xi_i\xi_j \;\ge\; \theta\,|\xi|^2
+\quad\text{for a.e. }x\in U\text{ and all }\xi\in\mathbb{R}^n.
+\]
+\end{definition}
+
+\begin{definition}[Uniform parabolicity]
+For the operator $\partial_t+L$ as above (with $a_{ij}=a_{ji}$ possibly depending on $(x,t)$), we say $\partial_t+L$ is \emph{(uniformly) parabolic} if there exists $\theta>0$ such that
+\[
+\sum_{i,j=1}^n a_{ij}(x,t)\,\xi_i\xi_j \;\ge\; \theta\,|\xi|^2
+\quad\text{for all }(x,t)\in U\times(0,T)\text{ and all }\xi\in\mathbb{R}^n.
+\]
+\end{definition}
+
+\begin{definition}[Hyperbolic first-order system (linear)]
+Consider
+\[
+u_t + \sum_{j=1}^n B_j(x,t)\,u_{x_j} = f(x,t),\qquad
+u:\mathbb{R}^n\times[0,\infty)\to\mathbb{R}^m.
+\]
+For $y\in\mathbb{R}^n$ set $B(x,t;y)=\sum_{j=1}^n y_j B_j(x,t)$. The system is called \emph{hyperbolic} if,
+for each $(x,t)$ and each $y$, the matrix $B(x,t;y)$ is diagonalizable over $\mathbb{R}$ (equivalently:
+it has $m$ real eigenvalues and a basis of eigenvectors).
+\end{definition}
+
+
+\begin{definition}[Jump discontinuity of a BV function]
+Let $u \in BV(\Omega)$, where $\Omega \subset \mathbb{R}^n$ is open.  
+A point $x \in \Omega$ belongs to the \emph{jump set} $J_u$ if there exist two distinct values $u^+(x), u^-(x) \in \mathbb{R}$ and a unit vector $\nu(x) \in \mathbb{S}^{n-1}$ such that
+\[
+\lim_{\rho \to 0^+} \frac{1}{|B_\rho^+(x,\nu)|}
+  \int_{B_\rho^+(x,\nu)} |u(y) - u^+(x)| \, dy = 0,
+\]
+and
+\[
+\lim_{\rho \to 0^+} \frac{1}{|B_\rho^-(x,\nu)|}
+  \int_{B_\rho^-(x,\nu)} |u(y) - u^-(x)| \, dy = 0,
+\]
+where $B_\rho^\pm(x,\nu) = \{\, y \in B_\rho(x) : \pm (y-x)\cdot \nu > 0 \,\}$ are the half-balls centered at $x$ with radius $\rho$, oriented by $\nu$.
+  
+At such a point $x \in J_u$, the function $u$ has a \emph{jump discontinuity} with one-sided traces $u^+(x)$ and $u^-(x)$ separated by the normal direction $\nu(x)$.  
+\end{definition}
+
+\newpage % same as before, but the other way around
+\end{appendices}
